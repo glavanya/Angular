@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
 //import * as firebase from 'firebase/app';
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
 
-import 'firebase/auth';
+//import 'firebase/auth';
 
 import { AuthService} from '../auth.service'
 
@@ -19,7 +19,7 @@ message: string="";
 userError:any;
 myForm:any=FormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder,public authService: AuthService) {
     this.myForm = this.fb.group({
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
@@ -52,23 +52,12 @@ myForm:any=FormGroup;
     let firstName:string=signupForm.value.firstName;
     let lastName:string=signupForm.value.lastName;
 
-    firebase.auth().createUserWithEmailAndPassword(email,password).then((response)=>{
-      console.log(response);
-            
-      let randomNumber= Math.floor(Math.random()*1000)
-     
-      response.user?.updateProfile({
-    displayName: firstName +""+lastName,
-    photoURL: "https://api.adorable.io/avatars/" +  randomNumber
-     
-      }).then(() => {
+    this.authService.signup(email,password,firstName,lastName).then(()=>{
         
         this.message = "You have been signed up successfully. Please login."
-      })
 
     }).catch((error)=>{
       console.log(error);
-      console.log('error');
       this.userError=error;
     })
   }

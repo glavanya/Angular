@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import * as firebase from 'firebase/app';
 import firebase from 'firebase';
 import 'firebase/auth';
-
+import { AuthService } from 'Angular/src/app/auth.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { CaptializePipe } from './captialize.pipe';
 
 
 let firebaseConfig = {
@@ -29,6 +31,8 @@ firebase.initializeApp(firebaseConfig)
     AppComponent,
     SignupComponent,
     LoginComponent,
+    HomeComponent,
+    CaptializePipe,
     
   ],
   imports: [
@@ -37,7 +41,7 @@ firebase.initializeApp(firebaseConfig)
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
