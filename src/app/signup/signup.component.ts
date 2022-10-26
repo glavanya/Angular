@@ -68,9 +68,9 @@ myForm:any=FormGroup;
 
     }).catch((error)=>{
       console.log(error);
+      console.log('error');
       this.userError=error;
     })
-
   }
   ngOnInit(): void {
   }
