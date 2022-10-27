@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CaptializePipe } from './captialize.pipe';
+import { MenuComponent } from './menu/menu.component';
 
 
 let firebaseConfig = {
@@ -32,6 +33,7 @@ firebase.initializeApp(firebaseConfig)
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    MenuComponent,
     CaptializePipe,
     
   ],

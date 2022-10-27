@@ -16,8 +16,9 @@ export class AuthService {
   signup(email:string,password:string,first_name:string,last_name:string){
     return new Promise((resolve,reject)=>{
 
-      let randomNumber= Math.floor(Math.random()*1000)
       firebase.auth().createUserWithEmailAndPassword(email,password).then((response)=>{
+        let randomNumber= Math.floor(Math.random()*1000)
+        
         response.user?.updateProfile({
           displayName:first_name+" "+last_name,
           photoURL: "https://api.adorable.io/avatars/" +  randomNumber

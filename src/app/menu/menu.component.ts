@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  loggedIn: boolean = false;
 
+
+  constructor() { }
+logout(){
+  console.log('loggedout successfully')
+}
   ngOnInit(): void {
   }
 
