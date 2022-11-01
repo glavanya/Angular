@@ -13,7 +13,7 @@ const routes: Routes = [{
   {
     path: 'home', component: HomeComponent},{
     path: 'login', component: LoginComponent},{
-    path: 'myblogs', component: MyblogsComponent,canActivate:[]},{
+    path: 'myblogs', component: MyblogsComponent,canActivate:[AuthGuard]},{
     path: 'profile/:id', component: ProfileComponent},{
     path: '**', redirectTo: 'home'
    }];
