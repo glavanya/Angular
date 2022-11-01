@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import * as firebase from 'firebase/app';
 import firebase from 'firebase';
 import 'firebase/auth';
-import { AuthService } from 'Angular/src/app/auth.service';
+import { AuthService } from '../app/auth.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

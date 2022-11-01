@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
 //import * as firebase from 'firebase/app';
-//import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 
-//import 'firebase/auth';
+// import 'firebase/auth';
 
-import { AuthService} from '../auth.service'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -46,22 +46,48 @@ myForm:any=FormGroup;
       }
     
     }
+ 
+  // onSubmit(signupForm:any){
+  //   let email:string=signupForm.value.email;
+  //   let password:string=signupForm.value.password;
+  //   let firstName:string=signupForm.value.firstName;
+  //   let lastName:string=signupForm.value.lastName;
+
+  //   firebase.auth().createUserWithEmailAndPassword(email,password).then((response)=>{
+  //       console.log(response);
+  //       let randomNumber = Math.floor(Math.random()*1000);
+  //       response.user?.updateProfile({
+  //         displayName: firstName+ " "+lastName,
+  //         photoURL: "https://api.adorable.io/avatars/" + randomNumber
+  //       }).then(()=>{
+  //         this.message = "You have been signed up successfully. Please login."
+  //       }) 
+  //   }).catch((error)=>{
+  //     console.log(error);
+  //     this.userError=error;
+  //   })
+  // }
+
+   
   onSubmit(signupForm:any){
     let email:string=signupForm.value.email;
     let password:string=signupForm.value.password;
     let firstName:string=signupForm.value.firstName;
     let lastName:string=signupForm.value.lastName;
 
-    this.authService.signup(email,password,firstName,lastName).then(()=>{
+    this.authService.singup(email,password,firstName,lastName).then(()=>{
+       
+          this.message = "You have been signed up successfully. Please login."
         
-        this.message = "You have been signed up successfully. Please login."
-
     }).catch((error)=>{
       console.log(error);
       this.userError=error;
     })
   }
+
+
   ngOnInit(): void {
   }
+
 
 }
